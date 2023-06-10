@@ -1,6 +1,7 @@
 import usePaymentsData from "../../../Hooks/usePaymentsData";
 import LoadingSpinner from "../../../Shared/LoadingSpinner";
 import SectionTitle from "../../../components/sectionTitle/sectionTitle";
+import moment from 'moment';
 
 
 const PaymentHistory = () => {
@@ -11,7 +12,7 @@ const PaymentHistory = () => {
     }
     // console.log(payments);
     return (
-        <div className="w-full">
+        <div className="w-3/4 mx-auto">
             <SectionTitle heading={'Payment History'} subHeading={"All your transaction IDs here"} />
 
             <div className="overflow-x-auto">
@@ -20,14 +21,14 @@ const PaymentHistory = () => {
                     <thead>
                         <tr>
                             <th>Enroll Date</th>
-                            <th>Course</th>
-                            <th>Trx ID</th>
+                            <th>Course Name</th>
+                            <th>Transaction ID</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             payments.map(payment => <tr key={payment._id}>
-                                <td>{payment.date}</td>
+                                <td>{moment(payment.date).format("MMMM Do YYYY, h:mm:ss a")}</td>
                                 <td>{payment.CourseName}</td>
                                 <td>{payment.transactionId}</td>
                             </tr>)
