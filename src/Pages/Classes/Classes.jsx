@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../components/sectionTitle/sectionTitle";
 import ClassesCard from "./ClassesCard";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
