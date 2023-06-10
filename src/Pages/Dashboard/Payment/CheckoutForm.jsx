@@ -82,6 +82,7 @@ const CheckoutForm = ({ specificClass, price }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
+                cartId: specificClass._id,
                 courseId: specificClass.courseId,
                 CourseName: specificClass.name,
                 status: 'pending',
@@ -89,9 +90,9 @@ const CheckoutForm = ({ specificClass, price }) => {
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    if (res.data.result.insertedId) {
-                        // display confirm
-                    }
+                    // if (res.data.result.insertedId) {
+                    //     // display confirm
+                    // }
                 })
         }
 

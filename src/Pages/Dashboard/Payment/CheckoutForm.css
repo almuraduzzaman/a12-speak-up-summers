@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body,
+/* body,
 html {
   background-color: #f6f9fc;
   font-size: 18px;
@@ -24,7 +24,7 @@ label {
   letter-spacing: 0.025em;
   margin-top: 16px;
   display: block;
-}
+} */
 
 /* button {
   white-space: nowrap;
