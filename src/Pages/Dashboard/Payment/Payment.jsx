@@ -10,20 +10,20 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
     const { classId } = useParams();
     const [selectedClasses] = useSelectedClasses();
-    const specificData = selectedClasses.find((classItem) => classItem._id === classId);
-    const desiredData = specificData.price;
+    const specificClass = selectedClasses.find((classItem) => classItem._id === classId);
+    const desiredData = specificClass.price;
     const price = parseFloat(desiredData.toFixed(2))
-    console.log(price);
+    console.log(specificClass);
 
-    
+
     // const total = selectedClasses.reduce((sum, item) => sum + item.price, 0);
-    
+
     return (
         <div>
             <SectionTitle subHeading="please process" heading="Payment"></SectionTitle>
             <h2 className="text-3xl"> Teka o teka tumi uira uira aso...</h2>
             <Elements stripe={stripePromise}>
-                <CheckoutForm  price={price}></CheckoutForm>
+                <CheckoutForm specificClass={specificClass} price={price}></CheckoutForm>
             </Elements>
         </div>
     );

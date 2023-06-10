@@ -1,12 +1,12 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect } from "react";
 import { useState } from "react";
-// import './CheckoutForm.css'
+import './CheckoutForm.css';
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
-const CheckoutForm = ({ cart, price }) => {
+const CheckoutForm = ({ specificClass, price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -69,7 +69,7 @@ const CheckoutForm = ({ cart, price }) => {
         );
 
         if (confirmError) {
-            setCardError(confirmError);
+            console.log(confirmError);
         }
 
         console.log('payment intent', paymentIntent)
@@ -82,11 +82,9 @@ const CheckoutForm = ({ cart, price }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                quantity: cart.length,
-                cartItems: cart.map(item => item._id),
-                menuItems: cart.map(item => item.menuItemId),
-                status: 'service pending',
-                itemNames: cart.map(item => item.name)
+                courseId: specificClass.courseId,
+                CourseName: specificClass.name,
+                status: 'pending',
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
