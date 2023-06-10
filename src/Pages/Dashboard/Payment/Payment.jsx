@@ -3,19 +3,27 @@ import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
 import SectionTitle from "../../../components/sectionTitle/sectionTitle";
+import { useParams } from "react-router-dom";
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
+    const { classId } = useParams();
     const [selectedClasses] = useSelectedClasses();
-    const total = selectedClasses.reduce((sum, item) => sum + item.price, 0);
-    const price = parseFloat(total.toFixed(2))
+    const specificData = selectedClasses.find((classItem) => classItem._id === classId);
+    const desiredData = specificData.price;
+    const price = parseFloat(desiredData.toFixed(2))
+    console.log(price);
+
+    
+    // const total = selectedClasses.reduce((sum, item) => sum + item.price, 0);
+    
     return (
         <div>
             <SectionTitle subHeading="please process" heading="Payment"></SectionTitle>
             <h2 className="text-3xl"> Teka o teka tumi uira uira aso...</h2>
             <Elements stripe={stripePromise}>
-                <CheckoutForm cart={selectedClasses} price={price}></CheckoutForm>
+                <CheckoutForm  price={price}></CheckoutForm>
             </Elements>
         </div>
     );

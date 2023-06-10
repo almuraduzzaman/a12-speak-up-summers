@@ -37,6 +37,7 @@ const SelectedClasses = () => {
         })
     }
 
+
     return (
         <>
             <h3 className="text-3xl font-semibold my-4">Selected Courses: {selectedClasses.length}</h3>
@@ -58,7 +59,7 @@ const SelectedClasses = () => {
                                 <td>{selectedClass.name}</td>
                                 <td className="text-end">${selectedClass.price}</td>
                                 <td onClick={() => handleDelete(selectedClass._id)} className="btn btn-warning btn-sm">Delete</td>
-                                <td className="btn btn-outline btn-sm"><Link to={'/dashboard/payment'}>Pay</Link></td>
+                                <td><Link className="btn btn-outline btn-sm" to={`/dashboard/payment/${selectedClass._id}`}>Pay</Link></td>
                             </tr>)
                         }
 
