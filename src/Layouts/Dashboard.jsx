@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 
 const Dashboard = () => {
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -18,6 +19,7 @@ const Dashboard = () => {
                     <li><NavLink to={'/dashboard/user-home'} className={({ isActive }) => isActive ? 'text-[#ab14a3]' : 'text-[#757575]'}><button>User Home</button></NavLink></li>
                     <li><NavLink to={'/dashboard/selected-classes'} className={({ isActive }) => isActive ? 'text-[#ab14a3]' : 'text-[#757575]'}><button>Selected Classes</button></NavLink></li>
                     <li><NavLink to={'/dashboard/enrolled-classes'} className={({ isActive }) => isActive ? 'text-[#ab14a3]' : 'text-[#757575]'}><button>Enrolled Classes</button></NavLink></li>
+                    <li><NavLink to={'/dashboard/payment-history'} className={({ isActive }) => isActive ? 'text-[#ab14a3]' : 'text-[#757575]'}><button>Payment History</button></NavLink></li>
 
 
 

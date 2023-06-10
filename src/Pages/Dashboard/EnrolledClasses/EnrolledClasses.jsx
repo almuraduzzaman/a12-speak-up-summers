@@ -1,7 +1,7 @@
 import useAuth from "../../../Hooks/useAuth";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import LoadingSpinner from "../../../Shared/LoadingSpinner";
 import useEnrolledClasses from "../../../Hooks/useEnrolledClasses";
+import SectionTitle from "../../../components/sectionTitle/sectionTitle";
 
 
 const EnrolledClasses = () => {
