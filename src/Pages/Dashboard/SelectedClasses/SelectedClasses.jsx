@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
+import { Link } from "react-router-dom";
 
 
 const SelectedClasses = () => {
@@ -52,12 +53,12 @@ const SelectedClasses = () => {
                     </thead>
                     <tbody>
                         {
-                          selectedClasses &&  selectedClasses.map((selectedClass, index) => <tr key={selectedClass._id}>
+                            selectedClasses && selectedClasses.map((selectedClass, index) => <tr key={selectedClass._id}>
                                 <th>{index + 1}</th>
                                 <td>{selectedClass.name}</td>
                                 <td className="text-end">${selectedClass.price}</td>
                                 <td onClick={() => handleDelete(selectedClass._id)} className="btn btn-warning btn-sm">Delete</td>
-                                <td className="btn btn-outline btn-sm">Pay</td>
+                                <td className="btn btn-outline btn-sm"><Link to={'/dashboard/payment'}>Pay</Link></td>
                             </tr>)
                         }
 
