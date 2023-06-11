@@ -3,19 +3,23 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
 
 
 const ClassesCard = ({ classObj }) => {
     const { user } = useContext(AuthContext);
-    const { _id, availableSeats, courseImage, name, instructor, price } = classObj;
+    const { _id, availableSeats, courseImage, courseName, instructorName, price } = classObj;
     const navigate = useNavigate();
     const location = useLocation();
-    const [, refetch] =useSelectedClasses();
+    const [, refetch] = useSelectedClasses();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     const handleAddToCart = (item) => {
         console.log(item);
         if (user && user.email) {
-            const cartItem = { courseId: _id, name, courseImage, price, email: user.email };
+            const cartItem = { courseId: _id, courseName, courseImage, price, email: user.email };
 
             fetch('http://localhost:5000/selectedClasses', {
                 method: 'POST',
@@ -27,7 +31,7 @@ const ClassesCard = ({ classObj }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        refetch(); 
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -57,13 +61,12 @@ const ClassesCard = ({ classObj }) => {
         <section key={classObj._id} className="text-gray-600 body-font">
             <div className={`${availableSeats == 0 ? 'bg-red-100' : 'bg-gray-100'} p-6 rounded-lg`}>
                 <img className="h-40 rounded w-full object-cover object-center mb-6" src={courseImage} alt="content" />
-                <h2 className="text-lg text-gray-900 font-medium title-font">{name}</h2>
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {instructor}</h3>
+                <h2 className="text-lg text-gray-900 font-medium title-font">{courseName}</h2>
+                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {instructorName}</h3>
                 <p className="leading-relaxed text-base">Available Seats: {availableSeats}</p>
                 <p className="leading-relaxed text-base">price: {price}</p>
 
-                {/* TODO: Logged in as admin/instructor  */}
-                <button onClick={() => handleAddToCart(classObj)} disabled={availableSeats == 0 ? true : false} className="btn btn-warning">Enroll</button>
+                <button onClick={() => handleAddToCart(classObj)} disabled={(availableSeats == 0) || isAdmin || isInstructor ? true : false} className="btn btn-warning">Enroll</button>
             </div>
         </section>
     );

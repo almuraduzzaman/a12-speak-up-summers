@@ -47,6 +47,7 @@ const SelectedClasses = () => {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Action</th>
@@ -56,10 +57,21 @@ const SelectedClasses = () => {
                         {
                             selectedClasses && selectedClasses.map((selectedClass, index) => <tr key={selectedClass._id}>
                                 <th>{index + 1}</th>
-                                <td>{selectedClass.name}</td>
+                                <td>
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={selectedClass.courseImage} />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{selectedClass.courseName}</td>
                                 <td className="text-end">${selectedClass.price}</td>
-                                <td onClick={() => handleDelete(selectedClass._id)} className="btn btn-warning btn-sm">Delete</td>
-                                <td><Link className="btn btn-outline btn-sm" to={`/dashboard/payment/${selectedClass._id}`}>Pay</Link></td>
+                                <td>
+                                    <div className="flex gap-2">
+                                        <button onClick={() => handleDelete(selectedClass._id)} className="btn btn-warning btn-sm">Delete</button>
+                                        <Link to={`/dashboard/payment/${selectedClass._id}`}><button className="btn btn-outline btn-sm">Pay</button></Link>
+                                    </div>
+                                </td>
                             </tr>)
                         }
 
