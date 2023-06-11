@@ -68,7 +68,7 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            <th>Give Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,12 +77,14 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.role === 'admin' ? 'Admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-warning">Admin</button>
-                                }</td>
-                                <td>{user.role === 'instructor' ? 'Instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-warning">Instructor</button>
-                                }</td>
+                                <td className="capitalize ">{user?.role ? user.role : 'student'}</td>
+                                <td>
+                                    <div className="flex gap-4">
+                                        <button disabled={user.role == 'admin' ? true : false} onClick={() => handleMakeAdmin(user)} className="btn btn-warning">Admin</button>
+
+                                        <button disabled={user.role == 'instructor' ? true : false} onClick={() => handleMakeInstructor(user)} className="btn btn-warning">Instructor</button>
+                                    </div>
+                                </td>
                             </tr>)
                         }
 
