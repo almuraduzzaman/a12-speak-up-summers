@@ -12,6 +12,14 @@ import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses"
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import AdminRoute from "./AdminRoute";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import AllClasses from "../Pages/Dashboard/AllClasses/AllClasses";
+import InstructorRoute from "./InstructorRoute";
+import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
+import AddAClass from "../Pages/Dashboard/AddAClass/AddAClass";
+import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <LandingPage/>
+        element: <LandingPage />
       },
       {
         path: 'login',
@@ -32,17 +40,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'instructors',
-        element: <Instructors/>
+        element: <Instructors />
       },
       {
         path: 'classes',
-        element: <Classes/>
+        element: <Classes />
       },
     ]
   },
   {
-    path:'dashboard',
-    element: <PrivateRoutes><Dashboard/></PrivateRoutes>,
+    path: 'dashboard',
+    element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
     children: [
       {
         path: 'user-home',
@@ -50,19 +58,43 @@ const router = createBrowserRouter([
       },
       {
         path: 'selected-classes',
-        element: <SelectedClasses/>
+        element: <SelectedClasses />
       },
       {
         path: 'enrolled-classes',
-        element: <EnrolledClasses/>
+        element: <EnrolledClasses />
       },
       {
         path: 'payment/:classId',
-        element: <Payment/>
+        element: <Payment />
       },
       {
         path: 'payment-history',
-        element: <PaymentHistory/>
+        element: <PaymentHistory />
+      },
+      {
+        path: 'admin-home',
+        element: <AdminRoute><AdminHome /></AdminRoute>
+      },
+      {
+        path: 'manage-users',
+        element: <AdminRoute><AllUsers /></AdminRoute>
+      },
+      {
+        path: 'manage-classes',
+        element: <AdminRoute><AllClasses /></AdminRoute>
+      },
+      {
+        path: 'instructor-home',
+        element: <InstructorRoute><InstructorHome /></InstructorRoute>
+      },
+      {
+        path: 'add-class',
+        element: <InstructorRoute><AddAClass /></InstructorRoute>
+      },
+      {
+        path: 'my-classes',
+        element: <InstructorRoute><MyClasses /></InstructorRoute>
       },
     ]
   },

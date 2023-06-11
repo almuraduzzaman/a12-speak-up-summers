@@ -1,5 +1,5 @@
 import  { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 import axios from 'axios';
 
@@ -32,17 +32,11 @@ const AuthProviders = ({ children }) => {
     }
 
 
-    // observer user auth state 
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-    //         setUser(currentUser);
-    //         setLoading(false);
-    //     });
-    //     // stop observing while unmounting
-    //     return () => {
-    //         return unsubscribe();
-    //     }
-    // }, [])
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -76,6 +70,7 @@ const AuthProviders = ({ children }) => {
         signIn,
         signInWithGoogle,
         logOut,
+        updateUserProfile
     }
 
     return (

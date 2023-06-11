@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { updateProfile } from "firebase/auth";
+// import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const { createUser, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, signInWithGoogle, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -25,37 +25,75 @@ const SignUp = () => {
         setPassword(event.target.value);
     };
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
 
         setError('')
+        // createUser(data.email, data.confirmPassword)
+        //     .then(result => {
+
+        //         const newUser = result.user;
+        //         updateUserProfile(newUser);
+
+        //         if (result?.user) {
+        //             Swal.fire(
+        //                 {
+        //                     text: 'Account Created Successfully',
+        //                     icon: 'success',
+        //                     confirmButtonText: 'Continue',
+        //                     confirmButtonColor: '#ab14a3'
+        //                 }
+        //             );
+        //         }
+        //         // console.log(newUser);
+        //     })
+        //     .catch(err => setError(err.message));
+
+        // const updateUserProfile = (user) => {
+        //     updateProfile(user, {
+        //         displayName: data.name, photoURL: data.photoURL
+        //     })
+        //         .then(() => { })
+        //         .catch(err => setError(err.message))
+        // }
+
         createUser(data.email, data.confirmPassword)
             .then(result => {
-                const newUser = result.user;
-                updateUsername(newUser);
-                if (result?.user) {
-                    Swal.fire(
-                        {
-                            text: 'Account Created Successfully',
-                            icon: 'success',
-                            confirmButtonText: 'Continue',
-                            confirmButtonColor: '#ab14a3'
-                        }
-                    );
-                }
-                // console.log(newUser);
-            })
-            .catch(err => setError(err.message));
 
-        const updateUsername = (user) => {
-            updateProfile(user, {
-                displayName: data.name, photoURL: data.photoURL
+                const loggedUser = result.user;
+                console.log(loggedUser);
+
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data?.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        text: 'Account Created Successfully',
+                                        icon: 'success',
+                                        confirmButtonText: 'Continue',
+                                        confirmButtonColor: '#ab14a3'
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+
+
+                    })
+                    .catch(error => console.log(error))
             })
-                .then(() => { })
-                .catch(err => setError(err.message))
-        }
     };
 
 
@@ -63,20 +101,42 @@ const SignUp = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                const loggedUser = result.user;
-                if (loggedUser) {
-                    Swal.fire(
-                        {
-                            text: 'Successfully Logged In with Google!',
-                            icon: 'success',
-                            confirmButtonText: 'Continue',
-                            confirmButtonColor: '#ab14a3'
+                const loggedInUser = result.user;
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then((data) => {
+                        if (data) {
+                            Swal.fire(
+                                {
+                                    text: 'Successfully Logged In with Google!',
+                                    icon: 'success',
+                                    confirmButtonText: 'Continue',
+                                    confirmButtonColor: '#ab14a3'
+                                }
+                            )
                         }
-                    )
-                }
+                        navigate(from, { replace: true });
+                    })
+                // if (loggedUser) {
+                //     Swal.fire(
+                //         {
+                //             text: 'Successfully Logged In with Google!',
+                //             icon: 'success',
+                //             confirmButtonText: 'Continue',
+                //             confirmButtonColor: '#ab14a3'
+                //         }
+                //     )
+                // }
                 // console.log(loggedUser);
-                setError('');
-                navigate(from, { replace: true })
+                // setError('');
+                // navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
@@ -97,7 +157,7 @@ const SignUp = () => {
                             Login here
                         </span></Link>
                     </p>
-                    <button onClick={handleGoogleSignIn} className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10">
+                    <div onClick={handleGoogleSignIn} className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10">
                         <svg width={19} height={20} viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z" fill="#4285F4" />
                             <path d="M9.68813 19.9314C12.3039 19.9314 14.4999 19.0455 16.1039 17.5174L13.0467 15.0813C12.2286 15.6682 11.1306 16.0779 9.68813 16.0779C7.12612 16.0779 4.95165 14.3395 4.17651 11.9366L4.06289 11.9465L1.07231 14.3273L1.0332 14.4391C2.62638 17.6946 5.89889 19.9314 9.68813 19.9314Z" fill="#34A853" />
@@ -105,7 +165,7 @@ const SignUp = () => {
                             <path d="M9.68807 3.85336C11.5073 3.85336 12.7344 4.66168 13.4342 5.33718L16.1684 2.59107C14.4892 0.985496 12.3039 0 9.68807 0C5.89885 0 2.62637 2.23672 1.0332 5.49214L4.16573 7.99466C4.95162 5.59183 7.12608 3.85336 9.68807 3.85336Z" fill="#EB4335" />
                         </svg>
                         <p className="text-base font-medium ml-4 text-gray-700">Continue with Google</p>
-                    </button>
+                    </div>
                     <div className="w-full flex items-center justify-between py-5">
                         <hr className="w-full bg-gray-400" />
                         <p className="text-base font-medium leading-4 px-2.5 text-gray-400">OR</p>
