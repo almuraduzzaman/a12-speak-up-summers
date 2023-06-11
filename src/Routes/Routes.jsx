@@ -15,11 +15,11 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import AdminRoute from "./AdminRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
-import AllClasses from "../Pages/Dashboard/AllClasses/AllClasses";
 import InstructorRoute from "./InstructorRoute";
 import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
 import AddAClass from "../Pages/Dashboard/AddAClass/AddAClass";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 
 const router = createBrowserRouter([
   {
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'manage-classes',
-        element: <AdminRoute><AllClasses /></AdminRoute>
+        element: <AdminRoute><ManageClasses/></AdminRoute>
       },
       {
         path: 'instructor-home',

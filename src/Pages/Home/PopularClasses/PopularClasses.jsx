@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../../components/sectionTitle/sectionTitle";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 
 const PopularClasses = () => {
