@@ -33,10 +33,10 @@ const NavBar = () => {
                 Dashboard
                 <div className="badge badge-secondary">{selectedClasses?.length || ''}</div>
             </button></NavLink></li>) 
-            : (<li><NavLink to={'/dashboard/user-home'} className={({ isActive }) => isActive ? 'text-[#ab14a3]' : 'text-[#757575]'}><button className="btn">
-                Dashboard
-                <div className="badge badge-secondary">{selectedClasses?.length || ''}</div>
-            </button></NavLink></li>)
+            : user && (<li><NavLink to={'/dashboard/user-home'} className={({ isActive }) => isActive ? 'text-[#ab14a3]' : 'text-[#757575]'}><button className="btn">
+            Dashboard
+            <div className="badge badge-secondary">{selectedClasses?.length || ''}</div>
+        </button></NavLink></li>)
         }
     </>
 

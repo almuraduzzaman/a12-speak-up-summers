@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useClassesAddedByInstructors from "../../../Hooks/useClassesAddedByInstructors";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
@@ -6,7 +7,7 @@ const ManageClasses = () => {
     const [allClasses, isLoading, refetch] = useClassesAddedByInstructors();
     // console.log(allClasses);
 
-    const handleApproved = (id)=>{
+    const handleApproved = (id) => {
         fetch(`http://localhost:5000/classes/approved/${id}`, {
             method: 'PATCH'
         })
@@ -17,7 +18,7 @@ const ManageClasses = () => {
             })
     };
 
-    const handleDenied = (id)=>{
+    const handleDenied = (id) => {
         fetch(`http://localhost:5000/classes/denied/${id}`, {
             method: 'PATCH'
         })
@@ -27,6 +28,7 @@ const ManageClasses = () => {
                 refetch();
             })
     };
+
 
     return (
         <div>
@@ -70,9 +72,9 @@ const ManageClasses = () => {
                                 <td className="text-end">${classObj.price}</td>
                                 <td className="capitalize">{classObj.status}</td>
                                 <td className="flex gap-2 mt-4">
-                                    <button onClick={()=>handleApproved(classObj._id)} className="btn btn-success btn-xs">Y</button>
-                                    <button onClick={()=>handleDenied(classObj._id)} className="btn btn-error btn-xs">N</button>
-                                    <button className="btn btn-neutral btn-xs">F</button>
+                                    <button onClick={() => handleApproved(classObj._id)} disabled={classObj.status === 'approved' || classObj.status === 'denied'} className="btn btn-success btn-xs">Y</button>
+                                    <button onClick={() => handleDenied(classObj._id)} disabled={classObj.status === 'approved' || classObj.status === 'denied'} className="btn btn-error btn-xs">N</button>
+                                    <Link to={`/dashboard/feedback/${classObj._id}`}><button className="btn btn-neutral btn-xs">F</button></Link>
                                 </td>
                             </tr>)
                         }

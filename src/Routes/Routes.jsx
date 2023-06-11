@@ -20,6 +20,7 @@ import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
 import AddAClass from "../Pages/Dashboard/AddAClass/AddAClass";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import Feedback from "../Pages/Dashboard/Feedback/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: 'manage-classes',
         element: <AdminRoute><ManageClasses/></AdminRoute>
+      },
+      {
+        path: 'feedback/:id',
+        element: <AdminRoute><Feedback/></AdminRoute>
       },
       {
         path: 'instructor-home',
