@@ -19,7 +19,7 @@ const PopularClasses = () => {
                 {classes.map((classObj) => (
                     <section key={classObj._id} className="text-gray-600 body-font">
                         <div className="bg-gray-100 p-6 rounded-lg">
-                            <img className="h-40 rounded w-full object-cover object-center mb-6" src={classObj.image} alt="content" />
+                            <img className="h-40 rounded w-full object-cover object-center mb-6" src={classObj.courseImage} alt="content" />
                             <h2 className="text-lg text-gray-900 font-medium title-font">{classObj.name}</h2>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {classObj.instructor}</h3>
                             <p className="leading-relaxed text-base">Enrolled: {classObj.totalStudents}</p>

@@ -7,7 +7,7 @@ import useSelectedClasses from "../../Hooks/useSelectedClasses";
 
 const ClassesCard = ({ classObj }) => {
     const { user } = useContext(AuthContext);
-    const { _id, availableSeats, image, name, instructor, price } = classObj;
+    const { _id, availableSeats, courseImage, name, instructor, price } = classObj;
     const navigate = useNavigate();
     const location = useLocation();
     const [, refetch] =useSelectedClasses();
@@ -15,7 +15,7 @@ const ClassesCard = ({ classObj }) => {
     const handleAddToCart = (item) => {
         console.log(item);
         if (user && user.email) {
-            const cartItem = { courseId: _id, name, image, price, email: user.email };
+            const cartItem = { courseId: _id, name, courseImage, price, email: user.email };
 
             fetch('http://localhost:5000/selectedClasses', {
                 method: 'POST',
@@ -56,7 +56,7 @@ const ClassesCard = ({ classObj }) => {
     return (
         <section key={classObj._id} className="text-gray-600 body-font">
             <div className={`${availableSeats == 0 ? 'bg-red-100' : 'bg-gray-100'} p-6 rounded-lg`}>
-                <img className="h-40 rounded w-full object-cover object-center mb-6" src={image} alt="content" />
+                <img className="h-40 rounded w-full object-cover object-center mb-6" src={courseImage} alt="content" />
                 <h2 className="text-lg text-gray-900 font-medium title-font">{name}</h2>
                 <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {instructor}</h3>
                 <p className="leading-relaxed text-base">Available Seats: {availableSeats}</p>
