@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import TrustedByOther from "../TrustedByOther/TrustedByOther";
 
 
 const LandingPage = () => {
@@ -9,6 +10,7 @@ const LandingPage = () => {
             <Banner/>
             <PopularClasses/>
             <PopularInstructors/>
+            <TrustedByOther/>
             {/* TODO: extra section  */}
         </div>
     );
