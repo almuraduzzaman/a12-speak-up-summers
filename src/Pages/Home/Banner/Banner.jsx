@@ -48,48 +48,48 @@ const Banner = () => {
         <>
             <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide number-slide1">
-                    <img src={img1} className="w-full" />
-                    <div className="absolute flex items-center bg-gradient-to-t from-[#d59a07] to-[rgba(21,21,21,0)] h-full">
-                        <div className='text-white font-bold space-y-7 w-1/2 pl-12'>
-                            <h2 className='text-6xl'>SUMMER CAMPS FOR KIDS & TEENS</h2>
-                            <p>Unforgettable summertime adventures for young students aged 8-17</p>
+                    <img src={img1} className="w-full h-full object-cover" />
+                    <div className="absolute w-full flex items-center justify-center text-center bg-gradient-to-t from-[#a87902] to-[rgba(21,21,21,0)] h-full">
+                        <div className='text-white font-bold space-y-7 md:w-1/2'>
+                            <h2 className=' text-4xl md:text-6xl'>Unlock a World of Language Learning</h2>
+                            <p>Immerse Yourself in the Beauty of Multilingual Communication</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="keen-slider__slide number-slide2">
-                <img src={img2} className="w-full " />
-                    <div className="absolute flex items-center bg-gradient-to-t from-[#d59a07] to-[rgba(21,21,21,0)] h-full">
-                        <div className='text-white font-bold space-y-7 w-1/2 pl-12'>
-                            <h2 className='text-6xl'>SUMMER CAMPS FOR KIDS & TEENS</h2>
-                            <p>Unforgettable summertime adventures for young students aged 8-17</p>
+                    <img src={img2} className="w-full h-full object-cover" />
+                    <div className="absolute w-full flex items-center justify-center text-center bg-gradient-to-t from-[#a87902] to-[rgba(21,21,21,0)] h-full">
+                        <div className='text-white font-bold space-y-7 md:w-1/2'>
+                            <h2 className=' text-4xl md:text-6xl'>Discover the Power of Language</h2>
+                            <p>Open New Doors and Expand Your Horizons through Language Education</p>
                         </div>
                     </div>
                 </div>
                 <div className="keen-slider__slide number-slide3">
-                <img src={img3} className="w-full " />
-                    <div className="absolute flex items-center bg-gradient-to-t from-[#d59a07] to-[rgba(21,21,21,0)] h-full">
-                        <div className='text-white font-bold space-y-7 w-1/2 pl-12'>
-                            <h2 className='text-6xl'>SUMMER CAMPS FOR KIDS & TEENS</h2>
-                            <p>Unforgettable summertime adventures for young students aged 8-17</p>
+                    <img src={img3} className="w-full h-full object-cover" />
+                    <div className="absolute w-full flex items-center justify-center text-center bg-gradient-to-t from-[#a87902] to-[rgba(21,21,21,0)] h-full">
+                        <div className='text-white font-bold space-y-7 md:w-1/2'>
+                            <h2 className=' text-4xl md:text-6xl'>Experience Language Adventure</h2>
+                            <p>Embark on a Journey of Cultural Discovery and Linguistic Exploration</p>
                         </div>
                     </div>
                 </div>
                 <div className="keen-slider__slide number-slide4">
-                <img src={img4} className="w-full " />
-                    <div className="absolute flex items-center bg-gradient-to-t from-[#d59a07] to-[rgba(21,21,21,0)] h-full">
-                        <div className='text-white font-bold space-y-7 w-1/2 pl-12'>
-                            <h2 className='text-6xl'>SUMMER CAMPS FOR KIDS & TEENS</h2>
-                            <p>Unforgettable summertime adventures for young students aged 8-17</p>
+                    <img src={img4} className="w-full h-full object-cover" />
+                    <div className="absolute w-full flex items-center justify-center text-center bg-gradient-to-t from-[#a87902] to-[rgba(21,21,21,0)] h-full">
+                        <div className='text-white font-bold space-y-7 md:w-1/2'>
+                            <h2 className=' text-4xl md:text-6xl'>Ignite Your Passion for Languages</h2>
+                            <p>Fuel Your Curiosity and Learn Languages in an Engaging Environment</p>
                         </div>
                     </div>
                 </div>
                 <div className="keen-slider__slide number-slide5">
-                <img src={img5} className="w-full " />
-                    <div className="absolute flex items-center bg-gradient-to-t from-[#d59a07] to-[rgba(21,21,21,0)] h-full">
-                        <div className='text-white font-bold space-y-7 w-1/2 pl-12'>
-                            <h2 className='text-6xl'>SUMMER CAMPS FOR KIDS & TEENS</h2>
-                            <p>Unforgettable summertime adventures for young students aged 8-17</p>
+                    <img src={img5} className="w-full h-full object-cover" />
+                    <div className="absolute w-full flex items-center justify-center text-center bg-gradient-to-t from-[#a87902] to-[rgba(21,21,21,0)] h-full">
+                        <div className='text-white font-bold space-y-7 md:w-1/2'>
+                            <h2 className=' text-4xl md:text-6xl'>Connect Globally, Communicate Fluently</h2>
+                            <p>Bridge Cultures and Build Lifelong Language Skills</p>
                         </div>
                     </div>
                 </div>
