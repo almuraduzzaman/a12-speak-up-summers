@@ -7,7 +7,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 const AdminHome = () => {
     const [isAdmin] = useAdmin();
     const { user } = useAuth();
-    console.log(isAdmin);
+    // console.log(isAdmin);
     return (
         <section className="text-neutral-700 dark:text-neutral-300 w-2/3">
             <Helmet>

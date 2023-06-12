@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
-    console.log(classes);
+    // console.log(classes);
     useEffect(() => {
         fetch('https://a12-speak-up-summers-server.vercel.app/classes')
             .then(res => res.json())

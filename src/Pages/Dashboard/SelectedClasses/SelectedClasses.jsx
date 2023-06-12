@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 const SelectedClasses = () => {
     const [selectedClasses, refetch] = useSelectedClasses();
-    console.log(selectedClasses);
+    // console.log(selectedClasses);
 
     const handleDelete = id => {
         // console.log(id);

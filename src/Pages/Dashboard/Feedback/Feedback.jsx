@@ -10,13 +10,13 @@ const Feedback = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [axiosSecure] = useAxiosSecure();
     const params = useParams();
-    console.log(params.id);
+    // console.log(params.id);
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         axiosSecure.patch(`/feedback/${params.id}`, { feedback: data.feedback })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.data.modifiedCount > 0) {
                     reset();
                     Swal.fire({

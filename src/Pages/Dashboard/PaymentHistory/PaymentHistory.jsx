@@ -7,7 +7,7 @@ import moment from 'moment';
 
 const PaymentHistory = () => {
     const [payments, , isLoading] = usePaymentsData();
-    console.log(payments);
+    // console.log(payments);
 
     if (isLoading) {
         return <LoadingSpinner />

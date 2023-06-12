@@ -10,7 +10,7 @@ const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddAClass = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 

@@ -12,7 +12,7 @@ const AllUsers = () => {
         return res.data;
     });
 
-    console.log(users);
+    // console.log(users);
 
     if (isLoading) {
         return <LoadingSpinner />
@@ -24,7 +24,7 @@ const AllUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
@@ -44,7 +44,7 @@ const AllUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({

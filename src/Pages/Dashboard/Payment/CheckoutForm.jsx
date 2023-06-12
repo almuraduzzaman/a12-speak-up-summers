@@ -47,7 +47,7 @@ const CheckoutForm = ({ specificClass, price }) => {
         })
 
         if (error) {
-            console.log('error', error)
+            // console.log('error', error)
             setCardError(error.message);
         }
         else {
@@ -71,7 +71,7 @@ const CheckoutForm = ({ specificClass, price }) => {
         );
 
         if (confirmError) {
-            console.log(confirmError);
+            // console.log(confirmError);
         }
 
         // console.log('payment intent', paymentIntent)
@@ -91,7 +91,7 @@ const CheckoutForm = ({ specificClass, price }) => {
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data.insertResult.acknowledged) {
                         Swal.fire({
                             position: 'top-end',

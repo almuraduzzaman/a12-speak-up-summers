@@ -6,7 +6,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 const PopularInstructors = () => {
 
     const [instructors, setInstructors] = useState([]);
-    console.log(instructors);
+    // console.log(instructors);
     useEffect(() => {
         fetch('https://a12-speak-up-summers-server.vercel.app/popular/instructors')
             .then(res => res.json())

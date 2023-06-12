@@ -6,7 +6,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const MyClasses = () => {
     const [myClasses, isLoading] = useMyClasses();
-    console.log(myClasses);
+    // console.log(myClasses);
 
     if (isLoading) {
         return <LoadingSpinner />

@@ -18,7 +18,7 @@ const EnrolledClasses = () => {
     // });
     // console.log(courses);
     const [courses, , isLoading] = useEnrolledClasses();
-    console.log(courses);
+    // console.log(courses);
 
     if (isLoading) {
         return <LoadingSpinner />
