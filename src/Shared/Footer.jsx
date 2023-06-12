@@ -1,85 +1,27 @@
+import { Link } from 'react-router-dom';
+import { FaPhoneAlt, FaLocationArrow } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import logo from '/logo.png'
 
 const Footer = () => {
     return (
-        <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div className="bg-gradient-to-r from-[#eddcb1] via-gray-100 to-[#eddcb1] px-4 pt-16 mt-10 md:px-24">
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="sm:col-span-2">
-                    <a
-                        href="/"
-                        aria-label="Go home"
-                        title="Company"
-                        className="inline-flex items-center"
-                    >
-                        <svg
-                            className="w-8 text-deep-purple-accent-400"
-                            viewBox="0 0 24 24"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeMiterlimit="10"
-                            stroke="currentColor"
-                            fill="none"
-                        >
-                            <rect x="3" y="1" width="7" height="12" />
-                            <rect x="3" y="17" width="7" height="6" />
-                            <rect x="14" y="1" width="7" height="6" />
-                            <rect x="14" y="11" width="7" height="12" />
-                        </svg>
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                            Company
-                        </span>
-                    </a>
+                    <Link to={'/'}>
+                        <img className='h-[70px]' src={logo} alt="Speak Up Summers" />
+                    </Link>
                     <div className="mt-6 lg:max-w-sm">
-                        <p className="text-sm text-gray-800">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam.
-                        </p>
-                        <p className="mt-4 text-sm text-gray-800">
-                            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                            beatae vitae dicta sunt explicabo.
-                        </p>
+                        <p className="text-sm text-gray-500">Empowering Language Learners: Our summer camp is dedicated to empowering students of all ages to become confident language learners, fostering a love for languages that lasts a lifetime.</p>
                     </div>
                 </div>
                 <div className="space-y-2 text-sm">
                     <p className="text-base font-bold tracking-wide text-gray-900">
                         Contacts
                     </p>
-                    <div className="flex">
-                        <p className="mr-1 text-gray-800">Phone:</p>
-                        <a
-                            href="tel:850-123-5021"
-                            aria-label="Our phone"
-                            title="Our phone"
-                            className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            850-123-5021
-                        </a>
-                    </div>
-                    <div className="flex">
-                        <p className="mr-1 text-gray-800">Email:</p>
-                        <a
-                            href="mailto:info@lorem.mail"
-                            aria-label="Our email"
-                            title="Our email"
-                            className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            info@lorem.mail
-                        </a>
-                    </div>
-                    <div className="flex">
-                        <p className="mr-1 text-gray-800">Address:</p>
-                        <a
-                            href="https://www.google.com/maps"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Our address"
-                            title="Our address"
-                            className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            312 Lovely Street, NY
-                        </a>
-                    </div>
+                        <p className="flex items-center gap-2 text-gray-800"><FaPhoneAlt /> 850-123-5021</p>
+                        <p className="flex items-center gap-2 text-gray-800"><MdEmail /> info@speakupsummers.com</p>
+                        <p className="flex items-center gap-2 text-gray-800"><FaLocationArrow /> 312 Lovely Street, NY</p>
                 </div>
                 <div>
                     <span className="text-base font-bold tracking-wide text-gray-900">
@@ -87,7 +29,7 @@ const Footer = () => {
                     </span>
                     <div className="flex items-center mt-1 space-x-3">
                         <a
-                            href="/"
+                            href="https://twitter.com/uzzaman_al"
                             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
                         >
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -95,7 +37,7 @@ const Footer = () => {
                             </svg>
                         </a>
                         <a
-                            href="/"
+                            href="https://www.instagram.com/al_murad_uzzaman/"
                             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
                         >
                             <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
@@ -104,7 +46,7 @@ const Footer = () => {
                             </svg>
                         </a>
                         <a
-                            href="/"
+                            href="https://www.facebook.com/AlMuradUzzamann/"
                             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
                         >
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -113,40 +55,18 @@ const Footer = () => {
                         </a>
                     </div>
                     <p className="mt-4 text-sm text-gray-500">
-                        Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-                        spare ribs salami.
+                    Expert Language Instructors: With a team of experienced and passionate language instructors, we provide top-quality education, personalized guidance for every student.
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
+            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t border-gray-500 lg:flex-row">
                 <p className="text-sm text-gray-600">
-                    © Copyright 2020 Lorem Inc. All rights reserved.
+                    © 2023 SpeakUpSummers - Al Murad Uzzaman
                 </p>
                 <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
-                    <li>
-                        <a
-                            href="/"
-                            className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                        >
-                            F.A.Q
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/"
-                            className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                        >
-                            Privacy Policy
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/"
-                            className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                        >
-                            Terms &amp; Conditions
-                        </a>
-                    </li>
+                    <li className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">F.A.Q</li>
+                    <li className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy Policy</li>
+                    <li className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</li>
                 </ul>
             </div>
         </div>
