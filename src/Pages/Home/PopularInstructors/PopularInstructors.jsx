@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../../components/sectionTitle/sectionTitle";
 import { BsFillPeopleFill } from "react-icons/bs";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 
 const PopularInstructors = () => {

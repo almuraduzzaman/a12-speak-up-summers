@@ -20,7 +20,8 @@ const Payment = () => {
             <Helmet>
                 <title>Payment | SpeakUpSummers</title>
             </Helmet>
-            <SectionTitle subHeading="please process" heading="Payment"></SectionTitle>
+            <SectionTitle subHeading="please proceed to payment" heading="Payment"></SectionTitle>
+            <h2 className="text-3xl"> This will be the best investment of your life.</h2>
             <Elements stripe={stripePromise}>
                 <CheckoutForm specificClass={specificClass} price={price}></CheckoutForm>
             </Elements>
