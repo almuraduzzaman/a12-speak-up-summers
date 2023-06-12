@@ -14,7 +14,7 @@ const PopularInstructors = () => {
 
     return (
         <div>
-            <SectionTitle heading={'We have the best instructors'} subHeading={'With 30,000+ digital and printable resources, kids can learn about any topic they are curious about.'} />
+            <SectionTitle heading={'Meet our Popular Language Instructors'} subHeading={'Learn from Experienced and Highly Recommended InstructorsLearn from Experienced and Highly Recommended Instructors'} />
 
             <div className="grid md:grid-cols-3 gap-6 mx-24">
                 {

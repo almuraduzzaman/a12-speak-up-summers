@@ -13,7 +13,7 @@ const PopularClasses = () => {
 
     return (
         <div>
-            <SectionTitle heading={'Our Popular Classes'} subHeading={'Review important concepts and explore new topics—the options are endless'} />
+            <SectionTitle heading={'Explore our Popular Language Classes'} subHeading={'Discover the Most Loved Courses for Language Learning'} />
 
             <div className="grid md:grid-cols-3 gap-6 mx-24">
                 {classes.map((classObj) => (

@@ -1,12 +1,15 @@
 import { motion } from "framer-motion"
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const TrustedByOther = () => {
     return (
-        <div className="container my-24 mx-auto md:px-6">
+        <div className="my-24 mx-auto md:px-6">
+            <SectionTitle heading={'Trusted by Many'}  subHeading={'Join our Trusted Language Learning Community'}/>
+
             <section className="mb-32 text-center">
                 <div className="py-12 md:px-12">
-                    <div className="container mx-auto xl:px-32">
-                        <div className="flex grid items-center lg:grid-cols-2">
+                    <div className="mx-auto xl:px-32">
+                        <div className=" grid lg:grid-cols-2">
                             <motion.div
                                 animate={{ y: [0, 80, 0] }}
                                 transition={{ repeat: Infinity, duration: 2, yoyo: Infinity }}
@@ -14,7 +17,7 @@ const TrustedByOther = () => {
                                 <div
                                     className="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
                                     <h2 className="mb-16 text-3xl font-bold">
-                                        Trusted by the best companies <br />
+                                        Trusted by the best institution <br />
                                         <span className="">around the world</span>
                                     </h2>
                                     <div className="grid gap-x-6 md:grid-cols-2">
