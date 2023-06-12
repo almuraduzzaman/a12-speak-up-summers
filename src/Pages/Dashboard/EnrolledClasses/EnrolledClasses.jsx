@@ -17,6 +17,7 @@ const EnrolledClasses = () => {
     // });
     // console.log(courses);
     const [courses, , isLoading] = useEnrolledClasses();
+    console.log(courses);
 
     if (isLoading) {
         return <LoadingSpinner />
@@ -32,8 +33,8 @@ const EnrolledClasses = () => {
                     courses.map(course => <section key={course._id} className="text-gray-600 body-font">
                         <div className='bg-gray-100 p-6 rounded-lg'>
                             <img className="h-40 rounded w-full object-cover object-center mb-6" src={course.courseImage} alt="content" />
-                            <h2 className="text-lg text-gray-900 font-medium title-font">{course.name}</h2>
-                            <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {course.instructor}</h3>
+                            <h2 className="text-lg text-gray-900 font-medium title-font">{course.courseName}</h2>
+                            <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {course.instructorName}</h3>
                             <p className="leading-relaxed text-base">Available Seats: {course.availableSeats}</p>
                             <p className="leading-relaxed text-base">price: {course.price}</p>
 

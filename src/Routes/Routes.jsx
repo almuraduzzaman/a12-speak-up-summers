@@ -21,11 +21,13 @@ import AddAClass from "../Pages/Dashboard/AddAClass/AddAClass";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import Feedback from "../Pages/Dashboard/Feedback/Feedback";
+import ErrorPage from "../Shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
@@ -83,11 +85,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'manage-classes',
-        element: <AdminRoute><ManageClasses/></AdminRoute>
+        element: <AdminRoute><ManageClasses /></AdminRoute>
       },
       {
         path: 'feedback/:id',
-        element: <AdminRoute><Feedback/></AdminRoute>
+        element: <AdminRoute><Feedback /></AdminRoute>
       },
       {
         path: 'instructor-home',

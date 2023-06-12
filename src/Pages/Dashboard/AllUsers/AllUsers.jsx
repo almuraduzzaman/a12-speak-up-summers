@@ -11,6 +11,8 @@ const AllUsers = () => {
         return res.data;
     });
 
+    console.log(users);
+
     if (isLoading) {
         return <LoadingSpinner />
     }

@@ -44,11 +44,11 @@ const ClassesCard = ({ classObj }) => {
         }
         else {
             Swal.fire({
-                title: 'Please login to order the food',
+                title: 'Please login to enroll in the course!',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#D74539',
+                cancelButtonColor: '#D28E4E',
                 confirmButtonText: 'Login now!'
             }).then((result) => {
                 if (result.isConfirmed) {

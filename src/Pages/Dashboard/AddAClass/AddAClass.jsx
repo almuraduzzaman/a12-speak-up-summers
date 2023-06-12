@@ -11,7 +11,7 @@ const AddAClass = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
@@ -47,11 +47,11 @@ const AddAClass = () => {
                         .then(data => {
                             console.log('after posting new menu item', data.data)
                             if (data.data.insertedId) {
-                                // reset();
+                                reset();
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
-                                    title: 'Item added successfully',
+                                    title: 'Class added successfully',
                                     showConfirmButton: false,
                                     timer: 1500
                                 })

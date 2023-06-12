@@ -4,7 +4,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const PopularClasses = () => {
     const [classes, setClasses] = useState([]);
-    console.log(classes);
+    // console.log(classes);
     useEffect(() => {
         fetch('https://a12-speak-up-summers-server.vercel.app/popular/classes')
             .then(res => res.json())
