@@ -3,10 +3,10 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const TrustedByOther = () => {
     return (
-        <div className="my-24 mx-auto md:px-6">
+        <div className="mx-4 md:mx-auto md:px-6">
             <SectionTitle heading={'Trusted by Many'}  subHeading={'Join our Trusted Language Learning Community'}/>
 
-            <section className="mb-32 text-center">
+            <section className="text-center">
                 <div className="py-12 md:px-12">
                     <div className="mx-auto xl:px-32">
                         <div className=" grid lg:grid-cols-2">

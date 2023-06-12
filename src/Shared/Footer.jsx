@@ -5,7 +5,7 @@ import logo from '/logo.png'
 
 const Footer = () => {
     return (
-        <div className="bg-gradient-to-r from-[#eddcb1] via-gray-100 to-[#eddcb1] px-4 pt-16 mt-10 md:px-24">
+        <div className="bg-gradient-to-t md:bg-gradient-to-r from-[#eddcb1] via-gray-100 to-[#eddcb1] px-4 pt-16 mt-10 md:px-24">
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="sm:col-span-2">
                     <Link to={'/'}>
