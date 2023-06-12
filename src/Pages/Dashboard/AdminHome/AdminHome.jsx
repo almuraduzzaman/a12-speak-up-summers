@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useAdmin from "../../../Hooks/useAdmin";
 import useAuth from "../../../Hooks/useAuth";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
@@ -9,11 +10,15 @@ const AdminHome = () => {
     console.log(isAdmin);
     return (
         <section className="text-neutral-700 dark:text-neutral-300 w-2/3">
+            <Helmet>
+                <title>Admin Home | SpeakUpSummers</title>
+            </Helmet>
+
+
             {
                 isAdmin ? <SectionTitle heading={'Efficient Admin Dashboard'} subHeading={'Manage Your Language Learning Journey with Ease'} /> :
                     <SectionTitle heading={'Personalized User Dashboard'} subHeading={'Streamline Operations and Enhance Language Learning Management'} />
             }
-
 
 
 

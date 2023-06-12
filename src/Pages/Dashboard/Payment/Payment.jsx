@@ -4,6 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
 import { useParams } from "react-router-dom";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
@@ -16,6 +17,9 @@ const Payment = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Payment | SpeakUpSummers</title>
+            </Helmet>
             <SectionTitle subHeading="please process" heading="Payment"></SectionTitle>
             <h2 className="text-3xl"> Teka o teka tumi uira uira aso...</h2>
             <Elements stripe={stripePromise}>

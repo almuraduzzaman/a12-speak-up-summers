@@ -2,6 +2,7 @@ import useAuth from "../../../Hooks/useAuth";
 import LoadingSpinner from "../../../Shared/LoadingSpinner";
 import useEnrolledClasses from "../../../Hooks/useEnrolledClasses";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 
 const EnrolledClasses = () => {
@@ -26,6 +27,9 @@ const EnrolledClasses = () => {
 
     return (
         <div className="w-full">
+            <Helmet>
+                <title>Enrolled Classes | SpeakUpSummers</title>
+            </Helmet>
             <SectionTitle heading={`Welcome to the class ${user.displayName}!`} subHeading={`Total Course: ${courses?.length}`} />
 
             <div className="grid md:grid-cols-3 gap-6 px-24">
@@ -38,7 +42,7 @@ const EnrolledClasses = () => {
                             <p className="leading-relaxed text-base">Available Seats: {course.availableSeats}</p>
                             <p className="leading-relaxed text-base">price: {course.price}</p>
 
-                            {/* TODO: Logged in as admin/instructor  */}
+                            
                             <button className="btn btn-warning">Start</button>
                         </div>
                     </section>)

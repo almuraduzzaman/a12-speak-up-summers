@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useAuth from "../../../Hooks/useAuth";
 import useInstructor from "../../../Hooks/useInstructor";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
@@ -8,6 +9,9 @@ const InstructorHome = () => {
     const [isInstructor] = useInstructor();
     return (
         <section className="text-neutral-700 dark:text-neutral-300 w-2/3">
+            <Helmet>
+                <title>Instructor Home | SpeakUpSummers</title>
+            </Helmet>
             {
                 isInstructor ? <SectionTitle heading={'Empowering Instructor Dashboard'} subHeading={'Take Control of Your Language Classes and Inspire Learners'} /> :
                     <SectionTitle heading={'Personalized User Dashboard'} subHeading={'Streamline Operations and Enhance Language Learning Management'} />

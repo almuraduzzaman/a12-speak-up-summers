@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import useClassesAddedByInstructors from "../../../Hooks/useClassesAddedByInstructors";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import LoadingSpinner from "../../../Shared/LoadingSpinner";
 
 
 const ManageClasses = () => {
     const [allClasses, isLoading, refetch] = useClassesAddedByInstructors();
     // console.log(allClasses);
+
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
 
     const handleApproved = (id) => {
         fetch(`https://a12-speak-up-summers-server.vercel.app/classes/approved/${id}`, {
@@ -13,8 +20,17 @@ const ManageClasses = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                refetch();
+                // console.log(data);
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class Approved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             })
     };
 
@@ -24,14 +40,26 @@ const ManageClasses = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                refetch();
+                // console.log(data);
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'warning',
+                        title: 'Class Denied',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             })
     };
 
 
     return (
         <div>
+            <Helmet>
+                <title>Manage Classes | SpeakUpSummers</title>
+            </Helmet>
             <SectionTitle heading={'Classes Added by Instructors'} subHeading={`Total Courses: ${allClasses?.length}`} />
 
             <div className="overflow-x-auto">
@@ -73,8 +101,13 @@ const ManageClasses = () => {
                                 <td className="capitalize">{classObj.status}</td>
                                 <td className="flex gap-2 mt-4">
                                     <button onClick={() => handleApproved(classObj._id)} disabled={classObj.status === 'approved' || classObj.status === 'denied'} className="btn btn-success btn-xs">Y</button>
+
                                     <button onClick={() => handleDenied(classObj._id)} disabled={classObj.status === 'approved' || classObj.status === 'denied'} className="btn btn-error btn-xs">N</button>
-                                    <Link to={`/dashboard/feedback/${classObj._id}`}><button className="btn btn-neutral btn-xs">F</button></Link>
+
+
+                                    {
+                                        (classObj.status === 'pending' || classObj.status === 'approved') ? <button className="btn btn-neutral btn-xs" disabled>F</button> : <Link to={`/dashboard/feedback/${classObj._id}`}><button className="btn btn-warning btn-xs">F</button></Link>
+                                    }
                                 </td>
                             </tr>)
                         }

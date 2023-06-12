@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
+import { HiCurrencyDollar } from "react-icons/hi";
+import { MdEventSeat } from "react-icons/md";
 
 
 const ClassesCard = ({ classObj }) => {
@@ -58,17 +60,34 @@ const ClassesCard = ({ classObj }) => {
         }
     }
     return (
-        <section key={classObj._id} className="text-gray-600 body-font">
+        <section key={classObj._id} className="text-gray-600 body-font mb-16">
             <div className={`${availableSeats == 0 ? 'bg-red-100' : 'bg-gray-100'} p-6 rounded-lg`}>
-                <img className="h-40 rounded w-full object-cover object-center mb-6" src={courseImage} alt="content" />
-                <h2 className="text-lg text-gray-900 font-medium title-font">{courseName}</h2>
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-4">By {instructorName}</h3>
-                <p className="leading-relaxed text-base">Available Seats: {availableSeats}</p>
-                <p className="leading-relaxed text-base">price: {price}</p>
+                <img className="h-40 rounded w-full object-cover object-center mb-6" src={courseImage} alt="Course" />
 
-                <button onClick={() => handleAddToCart(classObj)} disabled={(availableSeats == 0) || isAdmin || isInstructor ? true : false} className="btn btn-warning">Enroll</button>
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h2 className="text-lg text-[#D74539] font-medium title-font">{courseName}</h2>
+                        <h3 className="tracking-widest text-[#D28E4E] text-xs font-medium title-font mb-4">By {instructorName}</h3>
+                    </div>
+                    <div>
+                        <p className="leading-relaxed text-base flex gap-1 items-center"><MdEventSeat className="w-6 h-6" /> {availableSeats}</p>
+                        <p className="leading-relaxed text-base flex gap-1 items-center"><HiCurrencyDollar className="w-6 h-6" /> {price}</p>
+                    </div>
+                </div>
+
+                <div className="flex justify-center"> 
+                    <button
+                        onClick={() => handleAddToCart(classObj)}
+                        disabled={(availableSeats == 0) || isAdmin || isInstructor ? true : false}
+                        className="flex w-1/4 cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#D28E4E] hover:bg-gradient-to-r text-gray-100 mt-2 text-base btn border-0"
+                    >
+                        Enroll
+                    </button>
+                </div>
+
             </div>
         </section>
+
     );
 };
 

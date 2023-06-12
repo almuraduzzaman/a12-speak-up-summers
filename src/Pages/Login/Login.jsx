@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -77,6 +78,9 @@ const Login = () => {
 
     return (
         <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4">
+            <Helmet>
+                <title>Login | SpeakUpSummers</title>
+            </Helmet>
             <div className="flex flex-col items-center justify-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10">
                     <p className="text-2xl font-extrabold leading-6 text-gray-800">

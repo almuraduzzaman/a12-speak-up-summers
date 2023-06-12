@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import usePaymentsData from "../../../Hooks/usePaymentsData";
 import LoadingSpinner from "../../../Shared/LoadingSpinner";
 import SectionTitle from "../../../components/sectionTitle/sectionTitle";
@@ -14,6 +15,9 @@ const PaymentHistory = () => {
     // console.log(payments);
     return (
         <div className="w-3/4 mx-auto">
+            <Helmet>
+                <title>Payment History| SpeakUpSummers</title>
+            </Helmet>
             <SectionTitle heading={'Payment History'} subHeading={"All your transaction IDs here"} />
 
             <div className="overflow-x-auto">

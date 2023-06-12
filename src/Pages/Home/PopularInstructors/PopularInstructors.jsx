@@ -19,24 +19,26 @@ const PopularInstructors = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mx-4 md:mx-24">
                 {
-                    instructors.map(instructor => <div key={instructor._id} className="card w-fit bg-base-100 shadow-xl">
-                        <figure className="px-6 pt-6">
-                            <img src={instructor.instructorPhoto} className="rounded-xl" />
-                        </figure>
-                        <div className="card-body flex items-center">
-                            <div>
-                                <h2 className="card-title text-[#D74539]">{instructor.instructorName}</h2>
-                                <p className="text-xl text-[#D28E4E]">{instructor.instructorEmail}</p>
+                    instructors.map(instructor =>
+
+                        <div key={instructor._id} className="card w-fit bg-base-100 shadow-xl">
+                            <figure>
+                                <img src={instructor.instructorPhoto} className="rounded-xl" />
+                            </figure>
+                            <div className="px-6 py-4 flex items-center justify-between">
+                                <div>
+                                    <h2 className="text-xl font-semibold text-[#D74539]">{instructor.instructorName}</h2>
+                                    <p className="text-lg text-[#D28E4E]">{instructor.instructorEmail}</p>
+                                </div>
+                                <div>
+                                    <p className="flex gap-1 justify-end text-xl  mb-2">
+                                        <BsFillPeopleFill />
+                                        <p className="tracking-widest text-sm">{instructor.enrolled} Students</p>
+                                    </p>
+                                    <button className="btn btn-sm">See Classes</button>
+                                </div>
                             </div>
-                            <div className="flex gap-1">
-                                <BsFillPeopleFill/>
-                                <p className="tracking-widest text-sm">{instructor.enrolled}</p>
-                            </div>
-                            {/* <div className="card-actions">
-                                <Link to={`/checkout/${_id}`}><button className="btn btn-primary">Book Now</button></Link>
-                            </div> */}
-                        </div>
-                    </div>)
+                        </div>)
                 }
             </div>
         </div>

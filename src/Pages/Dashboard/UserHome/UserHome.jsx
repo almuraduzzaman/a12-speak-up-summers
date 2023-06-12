@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useAuth from "../../../Hooks/useAuth";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
@@ -7,6 +8,9 @@ const UserHome = () => {
     console.log(user);
     return (
         <section className="text-neutral-700 dark:text-neutral-300 md:w-2/3">
+            <Helmet>
+                <title>Student Home | SpeakUpSummers</title>
+            </Helmet>
             <SectionTitle heading={'Personalized User Dashboard'} subHeading={'Manage Your Language Learning Journey with Ease'} />
 
 

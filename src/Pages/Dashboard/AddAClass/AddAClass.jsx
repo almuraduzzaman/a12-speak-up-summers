@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
@@ -63,6 +64,9 @@ const AddAClass = () => {
     };
     return (
         <>
+            <Helmet>
+                <title>Add Class | SpeakUpSummers</title>
+            </Helmet>
             < section className="rounded-lg bg-gray-200 p-8 shadow-lg" >
                 <SectionTitle heading={'Add a Class'} subHeading={'Use the below form to create a new class'} />
                 <div className="md:px-28">
@@ -80,12 +84,6 @@ const AddAClass = () => {
                             </div>
                             <div className="w-1/2">
                                 <label className="font-medium">Class Image</label>
-                                {/* <input
-                                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                    placeholder="Photo URL"
-                                    type="url"
-                                    {...register("image", { required: true })}
-                                /> */}
                                 <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
                                 {errors.image?.type === 'required' && <p>Image is required</p>}
                             </div>
@@ -142,8 +140,7 @@ const AddAClass = () => {
                         </div>
 
                         <div className="mt-4">
-                            {/* <input className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit" value="ADD" /> */}
-                            <button className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit">ADD</button>
+                            <button className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#D28E4E] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit">ADD</button>
                         </div>
                     </form>
                 </div>

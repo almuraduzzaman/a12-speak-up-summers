@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const SelectedClasses = () => {
@@ -40,6 +41,9 @@ const SelectedClasses = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Selected Classes | SpeakUpSummers</title>
+            </Helmet>
             <h3 className="text-3xl font-semibold my-4">Selected Courses: {selectedClasses.length}</h3>
             <div className="overflow-x-auto w-1/2">
                 <table className="table table-zebra ">

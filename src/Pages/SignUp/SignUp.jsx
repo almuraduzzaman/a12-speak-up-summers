@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
-// import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     const { createUser, signInWithGoogle, updateUserProfile } = useContext(AuthContext);
@@ -31,33 +31,6 @@ const SignUp = () => {
         // console.log(data);
 
         setError('')
-        // createUser(data.email, data.confirmPassword)
-        //     .then(result => {
-
-        //         const newUser = result.user;
-        //         updateUserProfile(newUser);
-
-        //         if (result?.user) {
-        //             Swal.fire(
-        //                 {
-        //                     text: 'Account Created Successfully',
-        //                     icon: 'success',
-        //                     confirmButtonText: 'Continue',
-        //                     confirmButtonColor: '#D74539'
-        //                 }
-        //             );
-        //         }
-        //         // console.log(newUser);
-        //     })
-        //     .catch(err => setError(err.message));
-
-        // const updateUserProfile = (user) => {
-        //     updateProfile(user, {
-        //         displayName: data.name, photoURL: data.photoURL
-        //     })
-        //         .then(() => { })
-        //         .catch(err => setError(err.message))
-        // }
 
         createUser(data.email, data.confirmPassword)
             .then(result => {
@@ -124,19 +97,6 @@ const SignUp = () => {
                         }
                         navigate(from, { replace: true });
                     })
-                // if (loggedUser) {
-                //     Swal.fire(
-                //         {
-                //             text: 'Successfully Logged In with Google!',
-                //             icon: 'success',
-                //             confirmButtonText: 'Continue',
-                //             confirmButtonColor: '#D74539'
-                //         }
-                //     )
-                // }
-                // console.log(loggedUser);
-                // setError('');
-                // navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
@@ -145,6 +105,9 @@ const SignUp = () => {
 
     return (
         <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4">
+            <Helmet>
+                <title>SignUp | SpeakUpSummers</title>
+            </Helmet>
             <div className="flex flex-col items-center justify-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10">
                     <p tabIndex={0} className="text-2xl font-extrabold leading-6 text-gray-800">
@@ -236,13 +199,6 @@ const SignUp = () => {
                     </div>
                     <div className="mt-6  w-full">
                         <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
-                        {/* <div className="relative flex items-center justify-center">
-                            <input
-                                {...register("confirmPassword", {required: true})}
-                                type='password'
-                                className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
-                                {errors.confirmPassword?.type === 'required' && <p>Please confirm password</p>}
-                        </div> */}
 
                         <div>
                             <input
