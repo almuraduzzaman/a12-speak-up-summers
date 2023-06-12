@@ -1,4 +1,4 @@
-import  { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 import axios from 'axios';
@@ -44,19 +44,19 @@ const AuthProviders = ({ children }) => {
             console.log('current user', currentUser);
 
             // get and set token
-            if(currentUser){
-                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
-                .then(data =>{
-                    // console.log(data.data.token)
-                    localStorage.setItem('access-token', data.data.token)
-                    setLoading(false);
-                })
+            if (currentUser) {
+                axios.post('https://a12-speak-up-summers-server.vercel.app/jwt', { email: currentUser.email })
+                    .then(data => {
+                        // console.log(data.data.token)
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
+                    })
             }
-            else{
+            else {
                 localStorage.removeItem('access-token')
             }
 
-            
+
         });
         return () => {
             return unsubscribe();

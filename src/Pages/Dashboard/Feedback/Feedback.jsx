@@ -44,7 +44,7 @@ const Feedback = () => {
 
 
                         <div className="mt-4">
-                            <button className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#ab14a3] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit">SEND</button>
+                            <button className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit">SEND</button>
                         </div>
                     </form>
                 </div>

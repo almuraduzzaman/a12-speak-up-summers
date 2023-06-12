@@ -4,12 +4,12 @@ import { AuthContext } from '../Providers/AuthProviders';
 import useAxiosSecure from './useAxiosSecure';
 
 const useSelectedClasses = () => {
-    const { user,loading } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
     // const { refetch, data: selectedClasses = [] } = useQuery({
     //     queryKey: ['selectedClasses', user?.email],
     //     queryFn: async ()=> {
-    //         const res =await fetch(`http://localhost:5000/selectedClasses?email=${user?.email}`);
+    //         const res =await fetch(`https://a12-speak-up-summers-server.vercel.app/selectedClasses?email=${user?.email}`);
     //         return res.json();
     //     }
     // })

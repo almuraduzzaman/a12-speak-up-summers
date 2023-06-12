@@ -4,6 +4,7 @@ import { useState } from "react";
 import './CheckoutForm.css';
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({ specificClass, price }) => {
@@ -20,11 +21,12 @@ const CheckoutForm = ({ specificClass, price }) => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
+                    // console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
                 })
         }
-    }, [price, axiosSecure])
+    }, [price, axiosSecure]);
+
 
 
     const handleSubmit = async (event) => {
@@ -72,7 +74,7 @@ const CheckoutForm = ({ specificClass, price }) => {
             console.log(confirmError);
         }
 
-        console.log('payment intent', paymentIntent)
+        // console.log('payment intent', paymentIntent)
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
@@ -84,15 +86,21 @@ const CheckoutForm = ({ specificClass, price }) => {
                 date: new Date(),
                 cartId: specificClass._id,
                 courseId: specificClass.courseId,
-                CourseName: specificClass.name,
+                CourseName: specificClass.courseName,
                 status: 'pending',
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    // if (res.data.result.insertedId) {
-                    //     // display confirm
-                    // }
+                    if (res.data.insertResult.acknowledged) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Payment Successful.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
                 })
         }
 

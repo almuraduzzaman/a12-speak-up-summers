@@ -8,7 +8,7 @@ const ManageClasses = () => {
     // console.log(allClasses);
 
     const handleApproved = (id) => {
-        fetch(`http://localhost:5000/classes/approved/${id}`, {
+        fetch(`https://a12-speak-up-summers-server.vercel.app/classes/approved/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -19,7 +19,7 @@ const ManageClasses = () => {
     };
 
     const handleDenied = (id) => {
-        fetch(`http://localhost:5000/classes/denied/${id}`, {
+        fetch(`https://a12-speak-up-summers-server.vercel.app/classes/denied/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

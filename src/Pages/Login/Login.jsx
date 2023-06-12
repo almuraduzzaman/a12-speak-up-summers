@@ -41,7 +41,7 @@ const Login = () => {
                             text: 'Successfully Logged In!',
                             icon: 'success',
                             confirmButtonText: 'Continue',
-                            confirmButtonColor: '#ab14a3'
+                            confirmButtonColor: '#D74539'
                         }
                     )
                 }
@@ -61,7 +61,7 @@ const Login = () => {
                             text: 'Successfully Logged In with Google!',
                             icon: 'success',
                             confirmButtonText: 'Continue',
-                            confirmButtonColor: '#ab14a3'
+                            confirmButtonColor: '#D74539'
                         }
                     )
                 }

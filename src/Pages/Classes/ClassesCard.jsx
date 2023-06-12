@@ -21,7 +21,7 @@ const ClassesCard = ({ classObj }) => {
         if (user && user.email) {
             const cartItem = { courseId: _id, courseName, courseImage, price, email: user.email };
 
-            fetch('http://localhost:5000/selectedClasses', {
+            fetch('https://a12-speak-up-summers-server.vercel.app/selectedClasses', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

@@ -43,7 +43,7 @@ const SignUp = () => {
         //                     text: 'Account Created Successfully',
         //                     icon: 'success',
         //                     confirmButtonText: 'Continue',
-        //                     confirmButtonColor: '#ab14a3'
+        //                     confirmButtonColor: '#D74539'
         //                 }
         //             );
         //         }
@@ -68,7 +68,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://a12-speak-up-summers-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -83,7 +83,7 @@ const SignUp = () => {
                                         text: 'Account Created Successfully',
                                         icon: 'success',
                                         confirmButtonText: 'Continue',
-                                        confirmButtonColor: '#ab14a3'
+                                        confirmButtonColor: '#D74539'
                                     });
                                     navigate('/');
                                 }
@@ -103,7 +103,7 @@ const SignUp = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://a12-speak-up-summers-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -118,7 +118,7 @@ const SignUp = () => {
                                     text: 'Successfully Logged In with Google!',
                                     icon: 'success',
                                     confirmButtonText: 'Continue',
-                                    confirmButtonColor: '#ab14a3'
+                                    confirmButtonColor: '#D74539'
                                 }
                             )
                         }
@@ -130,7 +130,7 @@ const SignUp = () => {
                 //             text: 'Successfully Logged In with Google!',
                 //             icon: 'success',
                 //             confirmButtonText: 'Continue',
-                //             confirmButtonColor: '#ab14a3'
+                //             confirmButtonColor: '#D74539'
                 //         }
                 //     )
                 // }

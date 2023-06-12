@@ -8,24 +8,13 @@ import Swal from "sweetalert2";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddAClass = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    console.log(user);
     const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit,  formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
-    // const onSubmit = data => {
-    //     const saveUser = {
-    // courseName: data.name,
-    // courseImage: data.image,
-    // instructorName: data.instructorName,
-    // instructorEmail: data.instructorEmail,
-    // availableSeats: parseInt(data.availableSeats),
-    // price: parseFloat(data.price),
-    // status: "pending"
-    //     }
-    //     console.log(saveUser);
-    // }
 
     const onSubmit = data => {
 
@@ -46,6 +35,7 @@ const AddAClass = () => {
                         courseImage: imgURL,
                         instructorName: data.instructorName,
                         instructorEmail: data.instructorEmail,
+                        instructorPhoto: user.photoURL,
                         availableSeats: parseInt(data.availableSeats),
                         price: parseFloat(data.price),
                         status: "pending",
@@ -152,8 +142,8 @@ const AddAClass = () => {
                         </div>
 
                         <div className="mt-4">
-                            {/* <input className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#ab14a3] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit" value="ADD" /> */}
-                            <button className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#ab14a3] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit">ADD</button>
+                            {/* <input className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit" value="ADD" /> */}
+                            <button className=" w-full cursor-pointer rounded-md bg-gradient-to-tr from-[#D74539] to-[#f280ec] hover:bg-gradient-to-r text-gray-100 py-3 px-5 text-base btn border-0" type="submit">ADD</button>
                         </div>
                     </form>
                 </div>

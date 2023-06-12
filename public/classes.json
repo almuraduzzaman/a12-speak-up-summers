@@ -79,4 +79,18 @@
         "price": 60,
         "totalStudents": 1355
     }
+],
+[
+    {
+        "courseName": "Spanish 101",
+        "courseImage": "https://img.freepik.com/free-vector/spanish-concept-illustration_114360-15686.jpg?w=740&t=st=1686283458~exp=1686284058~hmac=5a089dc0bbdba7a0601b788fa00037faaab16a59a7f996f92732d93b45a4e4e7",
+        "instructorName": "Maria Rodriguez",
+        "instructorEmail": "maria@gmail.com",
+        "instructorPhoto": "https://img.freepik.com/free-photo/smiling-woman-writing-notes-tablet-digital-device_53876-111318.jpg?w=996&t=st=1686291078~exp=1686291678~hmac=3dac0e0ea99a56a8b9ebeffb15a3d67e48a882bc5e150324d725afb368799c30",
+        "availableSeats": 20,
+        "price": 765,
+        "status": "pending",
+        "enrolled": 0,
+        "feedback": "",
+    },
 ]

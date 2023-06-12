@@ -6,7 +6,7 @@ const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
     console.log(instructors);
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://a12-speak-up-summers-server.vercel.app/instructors')
             .then(res => res.json())
             .then(data => setInstructors(data))
     }, [])
@@ -15,7 +15,7 @@ const Instructors = () => {
         <>
             <SectionTitle heading={'We have the best instructors'} subHeading={'With 30,000+ digital and printable resources, kids can learn about any topic they are curious about.'} />
 
-            <div className="grid md:grid-cols-3 gap-6 px-24">
+            <div className="grid md:grid-cols-3 gap-6 mx-24">
                 {
                     instructors.map(instructor => <div key={instructor._id} className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
